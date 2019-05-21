@@ -1,5 +1,5 @@
 = Groovy and *{graalvm}*
-:sources-url: https://github.com/wololock/groovy-and-graalvm
+:sources-url: icon:github[] http://bit.ly/groovy-and-graalvm
 :revnumber: {project-version}
 :imagesdir: images
 :sourcedir: ../java

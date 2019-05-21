@@ -14,8 +14,7 @@ Do you have any [.mark]*questions*?
 
 [.animation-slide-right.text-left.margin-left-200.margin-top-60]
 --
-[.mark]*Handout*, slides, and all materials are available:
+[.mark]*Handout*, slides, demos, and all materials are available:
 
-[.smaller]
-*{sources-url}*
+[.larger]*{sources-url}*
 --
