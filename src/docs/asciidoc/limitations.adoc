@@ -1,0 +1,214 @@
+== Limitations
+
+[.mark]*Groovy* is not a first-class citizen for ahead-of-time compilation
+
+=== icon:ban[role="red"] Runtime metaprogramming
+
+[.mark]*Substrate VM* (ahead-of-time compiler) does not support dynamic class generation, InvokeDynamic[.red]^*^ Bytecode
+and Method Handle
+
+[.smaller]_([.red]^*^ except a single virtual call reduction used for Java 8 Lambda expressions)_
+
+=== icon:ban[role="red"] Dynamic nature
+
+In most cases [.mark]*dynamic* Groovy idioms won't compile with AOT, thus it is recommended to use *static compilation*
+
+=== icon:ban[role="red"] Closure coercion to SAM
+
+A closure coercion to SAM ([.mark]*single abstract method*) type is not currently supported
+
+https://github.com/oracle/graal/issues/1306
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter { int n -> n > 10 }
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter [.mark]*{ int n -> n > 10 }*
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter [.mark]*{ int n -> n > 10 }* icon:ban[role="red"]
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter { int n -> n > 10 }
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter(new IntPredicate() {
+                    @Override
+                    boolean test(int n) {
+                        return n > 10
+                    }
+                })
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter(new IntPredicate() { // icon:check[role="green"] Works for Groovy 2.x
+                    @Override
+                    boolean test(int n) {
+                        return n > 10
+                    }
+                })
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter(n -> n > 10)
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+package example
+
+import java.util.function.IntPredicate
+import java.util.stream.IntStream
+
+class App {
+    static void main(String[] args) {
+        def result = IntStream.range(0, 100)
+                .filter(n -> n > 10) // icon:check[role="green"] Works for Groovy 3.x
+                .sum()
+
+        println "result = ${result}"
+    }
+}
+----
+
+
+=== icon:ban[role="red"] Grape dependencies
+
+It doesn't work out of the box, but you can [.mark]*apply a workaround*
+
+[%step,role="nobullets"]
+* Collect all [.mark]*JARs* to a single folder `groovy -Dgrape.root=libs/ ...`
+* Put all collected JARs to the [.mark]*classpath*
+* Compile native image with `-Dgroovy.grape.enable=false`
+* [.xs]#https://e.printstacktrace.blog/graalvm-groovy-grape-creating-native-image-of-standalone-script/#
+
+
+=== icon:ban[role="red"] Substrate VM limitations
+
+https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md

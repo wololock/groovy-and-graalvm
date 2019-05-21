@@ -1,0 +1,32 @@
+= Groovy and *{graalvm}*
+:sources-url: https://github.com/wololock/groovy-and-graalvm
+:revnumber: {project-version}
+:imagesdir: images
+:sourcedir: ../java
+:customcss: css/custom.css
+:highlightjs-theme: css/androidstudio.min.css
+:listing-caption: Listing
+:bg1: #666666
+:bg2: #3D749C
+:graalvm: pass:q[<span class="color-graal-1">Graal</span><span class="color-graal-2">VM<sub class="xxs">TM</sub></span>]
+:cur1: [.blinking]##_##
+:cur2: [.blinking]##█##
+:subs: verbatim,attributes,macros,quotes
+
+Instant startup with `native-image` ahead-of-time compilation
+
+// -- Slides --
+
+include::goals.adoc[]
+
+include::whoami.adoc[]
+
+include::install.adoc[]
+
+include::demo.adoc[]
+
+include::limitations.adoc[]
+
+include::conclusions.adoc[]
+
+include::thankyou.adoc[]

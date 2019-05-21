@@ -1,0 +1,2432 @@
+== [.mark]#Groovy# script intro
+
+Compiling simple Groovy script to a [.mark]*native image*
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *groovy -version*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ groovy -version
+Groovy Version: 2.5.7 JVM: 1.8.0_212 Vendor: Oracle Corporation OS: Linux
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ groovy -version
+Groovy Version: 2.5.7 JVM: 1.8.0_212 Vendor: Oracle Corporation OS: Linux
+
+$ *vim jobs.groovy*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+jobs.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+import groovy.json.JsonSlurper
+
+def jobsUrl = "https://jobs.github.com/positions.json?description=groovy"
+
+def json = new JsonSlurper().parse(jobsUrl.toURL()) as List<Map>
+
+json.each {
+    println ("\n" + "=" * 42)
+    println it.title
+    println it.location
+    println "@ ${it.company}"
+    println it.created_at
+    println it.url
+    println ("=" * 42)
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~##
+jobs.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+import groovy.json.JsonSlurper
+
+[.mark]*def jobsUrl = "https://jobs.github.com/positions.json?description=groovy"*
+
+def json = new JsonSlurper().parse(jobsUrl.toURL()) as List<Map>
+
+json.each {
+    println ("\n" + "=" * 42)
+    println it.title
+    println it.location
+    println "@ ${it.company}"
+    println it.created_at
+    println it.url
+    println ("=" * 42)
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~##
+jobs.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+import groovy.json.JsonSlurper
+
+def jobsUrl = "https://jobs.github.com/positions.json?description=groovy"
+
+[.mark]*def json = new JsonSlurper().parse(jobsUrl.toURL()) as List<Map>*
+
+json.each {
+    println ("\n" + "=" * 42)
+    println it.title
+    println it.location
+    println "@ ${it.company}"
+    println it.created_at
+    println it.url
+    println ("=" * 42)
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~##
+jobs.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+import groovy.json.JsonSlurper
+
+def jobsUrl = "https://jobs.github.com/positions.json?description=groovy"
+
+def json = new JsonSlurper().parse(jobsUrl.toURL()) as List<Map>
+
+json.each {
+[.mark]**    println ("\n" + "=" * 42)
+    println it.title
+    println it.location
+    println "@ ${it.company}"
+    println it.created_at
+    println it.url
+    println ("=" * 42)**
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~##
+jobs.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+import groovy.json.JsonSlurper
+
+def jobsUrl = "https://jobs.github.com/positions.json?description=groovy"
+
+def json = new JsonSlurper().parse(jobsUrl.toURL()) as List<Map>
+
+json.each {
+    println ("\n" + "=" * 42)
+    println it.title
+    println it.location
+    println "@ ${it.company}"
+    println it.created_at
+    println it.url
+    println ("=" * 42)
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~##
+jobs.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *time groovy jobs.groovy*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time groovy jobs.groovy
+
+[.delay-1744ms]#...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	0m1,744s
+user	0m2,594s
+sys	0m0,210s
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time groovy jobs.groovy
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m1,744s*
+user	0m2,594s
+sys	0m0,210s
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time groovy jobs.groovy
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m1,744s* ([.mark]*~600ms* latency, [.mark]*~1100ms* JVM startup time)
+user	0m2,594s
+sys	0m0,210s
+
+$ {cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *vim compiler.groovy*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+compiler.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+withConfig(configuration) {
+    ast(groovy.transform.CompileStatic)
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+compiler.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,groovy,subs="{subs}"]
+----
+withConfig(configuration) {
+    [.mark]*ast(groovy.transform.CompileStatic)*
+}
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+compiler.groovy [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ vim compiler.groovy
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ vim compiler.groovy
+
+$ *groovyc --configscript=compiler.groovy jobs.groovy*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ vim compiler.groovy
+
+$ *groovyc [.mark]#--configscript=compiler.groovy# jobs.groovy*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ vim compiler.groovy
+
+$ groovyc --configscript=compiler.groovy jobs.groovy
+
+[.delay-500ms]#$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ vim compiler.groovy
+
+$ groovyc --configscript=compiler.groovy jobs.groovy
+
+$ *ls -lah *.class*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ vim compiler.groovy
+
+$ groovyc --configscript=compiler.groovy jobs.groovy
+
+$ ls -lah *.class
+-rw-rw-r-- 1 user user 2,6K 05-21 11:16 'jobs$_run_closure1.class'
+-rw-rw-r-- 1 user user 2,0K 05-21 11:16  jobs.class
+
+$ {cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *time*{cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *time java*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]*-cp ".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]*-cp "[.mark]##.##:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]*-cp ".:$GROOVY_HOME/lib/[.mark]##groovy-2.5.7.jar##:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]*-cp ".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/[.mark]##groovy-json-2.5.7.jar##"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]#-cp ".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"# \
+    *jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]#-cp ".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"# \
+    jobs
+
+[.delay-1395ms]#...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	0m1,395s
+user	0m1,336s
+sys	0m0,116s
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]#-cp ".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"# \
+    jobs
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m1,395s*
+user	0m1,336s
+sys	0m0,116s
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time java \
+    [.smaller]#-cp ".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"# \
+    jobs
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m1,395s* vs. [.mark]*0m1,744s*
+user	0m1,336s
+sys	0m0,116s
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]*export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ *native-image*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image *--no-server*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image --no-server \
+    *-cp "${CPH}"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image --no-server \
+    -cp "${CPH}" \
+    *jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image --no-server \
+    -cp "${CPH}" \
+    jobs
+[.delay-500ms]#[jobs:29582]    classlist:   2,487.03 ms#
+[.delay-800ms]#[jobs:29582]        (cap):   1,007.37 ms#
+[.delay-1200ms]#[jobs:29582]        setup:   2,110.49 ms#
+[.delay-1500ms]#[jobs:29582]     analysis:  12,851.56 ms
+Warning: Aborting stand-alone image build. Unsupported features in 6 methods
+Error: com.oracle.graal.pointsto.constraints.UnresolvedElementException:
+Discovered unresolved method during parsing: org.codehaus.groovy.control.XStreamUtils.serialize(java.lang.String, java.lang.Object).
+To diagnose the issue you can use the --allow-incomplete-classpath option. The missing method is then reported at run time when it is accessed the first time.#
+[.delay-2000ms]#...
+[jobs:30355]      compile:   6,068.63 ms
+[jobs:30355]        image:     385.21 ms#
+[.delay-3000ms]#[jobs:30355]        write:     108.26 ms
+[jobs:30355]      [total]:  13,645.58 ms
+Warning: Image 'jobs' is a fallback image that requires a JDK for execution
+(use --no-fallback to suppress fallback image generation).
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image --no-server \
+    -cp "${CPH}" \
+    jobs
+[jobs:29582]    classlist:   2,487.03 ms
+[jobs:29582]        (cap):   1,007.37 ms
+[jobs:29582]        setup:   2,110.49 ms
+[jobs:29582]     analysis:  12,851.56 ms
+Warning: Aborting stand-alone image build. Unsupported features in 6 methods
+Error: com.oracle.graal.pointsto.constraints.UnresolvedElementException:
+[.mark]*Discovered unresolved method during parsing*: org.codehaus.groovy.control.XStreamUtils.serialize(java.lang.String, java.lang.Object).
+To diagnose the issue you can use the --allow-incomplete-classpath option. The missing method is then reported at run time when it is accessed the first time.
+...
+[jobs:30355]      compile:   6,068.63 ms
+[jobs:30355]        image:     385.21 ms
+[jobs:30355]        write:     108.26 ms
+[jobs:30355]      [total]:  13,645.58 ms
+Warning: Image 'jobs' is a fallback image that requires a JDK for execution
+(use --no-fallback to suppress fallback image generation).
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image --no-server \
+    -cp "${CPH}" \
+    jobs
+[jobs:29582]    classlist:   2,487.03 ms
+[jobs:29582]        (cap):   1,007.37 ms
+[jobs:29582]        setup:   2,110.49 ms
+[jobs:29582]     analysis:  12,851.56 ms
+Warning: Aborting stand-alone image build. Unsupported features in 6 methods
+Error: com.oracle.graal.pointsto.constraints.UnresolvedElementException:
+[.mark]*Discovered unresolved method during parsing*: org.codehaus.groovy.control.XStreamUtils.serialize(java.lang.String, java.lang.Object).
+To diagnose the issue you can use the [.mark]*--allow-incomplete-classpath* option. The missing method is then reported at run time when it is accessed the first time.
+...
+[jobs:30355]      compile:   6,068.63 ms
+[jobs:30355]        image:     385.21 ms
+[jobs:30355]        write:     108.26 ms
+[jobs:30355]      [total]:  13,645.58 ms
+Warning: Image 'jobs' is a fallback image that requires a JDK for execution
+(use --no-fallback to suppress fallback image generation).
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ [.smaller]#export CPH=".:$GROOVY_HOME/lib/groovy-2.5.7.jar:$GROOVY_HOME/lib/groovy-json-2.5.7.jar"#
+
+$ native-image --no-server \
+    -cp "${CPH}" \
+    jobs
+[jobs:29582]    classlist:   2,487.03 ms
+[jobs:29582]        (cap):   1,007.37 ms
+[jobs:29582]        setup:   2,110.49 ms
+[jobs:29582]     analysis:  12,851.56 ms
+Warning: Aborting stand-alone image build. Unsupported features in 6 methods
+Error: com.oracle.graal.pointsto.constraints.UnresolvedElementException:
+[.mark]*Discovered unresolved method during parsing*: org.codehaus.groovy.control.XStreamUtils.serialize(java.lang.String, java.lang.Object).
+To diagnose the issue you can use the [.mark]*--allow-incomplete-classpath* option. The missing method is then reported at run time when it is accessed the first time.
+...
+[jobs:30355]      compile:   6,068.63 ms
+[jobs:30355]        image:     385.21 ms
+[jobs:30355]        write:     108.26 ms
+[jobs:30355]      [total]:  13,645.58 ms
+Warning: Image 'jobs' is a fallback image that requires a JDK for execution
+(use [.mark]*--no-fallback* to suppress fallback image generation).
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    *--allow-incomplete-classpath* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    *--no-fallback* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    jobs
+[.delay-500ms]#[jobs:24147]    classlist:   2,359.08 ms#
+[.delay-800ms]#[jobs:24147]        (cap):     817.77 ms#
+[.delay-1200ms]#[jobs:24147]        setup:   1,907.15 ms#
+[.delay-1300ms]#[jobs:24147]     analysis:  12,338.40 ms#
+[.delay-1400ms]#Error: Unsupported features in 3 methods
+Error: com.oracle.svm.hosted.substitute.DeletedElementException:
+Unsupported method java.lang.ClassLoader.defineClass(String, byte[], int, int)
+is reachable: The declaring class of this element has been substituted,
+but this element is not present in the substitution class
+To diagnose the issue, you can add the option --report-unsupported-elements-at-runtime.
+The unsupported element is then reported at run time when it is accessed the first time.
+
+Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exception
+Error: Image build request failed with exit status 1
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    jobs
+[jobs:24147]    classlist:   2,359.08 ms
+[jobs:24147]        (cap):     817.77 ms
+[jobs:24147]        setup:   1,907.15 ms
+[jobs:24147]     analysis:  12,338.40 ms
+Error: Unsupported features in 3 methods
+Error: com.oracle.svm.hosted.substitute.DeletedElementException:
+[.mark]*Unsupported method java.lang.ClassLoader.defineClass(String, byte[], int, int)*
+is reachable: The declaring class of this element has been substituted,
+but this element is not present in the substitution class
+To diagnose the issue, you can add the option --report-unsupported-elements-at-runtime.
+The unsupported element is then reported at run time when it is accessed the first time.
+
+Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exception
+Error: Image build request failed with exit status 1
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    jobs
+[jobs:24147]    classlist:   2,359.08 ms
+[jobs:24147]        (cap):     817.77 ms
+[jobs:24147]        setup:   1,907.15 ms
+[jobs:24147]     analysis:  12,338.40 ms
+Error: Unsupported features in 3 methods
+Error: com.oracle.svm.hosted.substitute.DeletedElementException:
+[.mark]*Unsupported method java.lang.ClassLoader.defineClass(String, byte[], int, int)*
+is reachable: The declaring class of this element has been substituted,
+but this element is not present in the substitution class
+To diagnose the issue, you can add the option [.mark]*--report-unsupported-elements-at-runtime*.
+The unsupported element is then reported at run time when it is accessed the first time.
+
+Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exception
+Error: Image build request failed with exit status 1
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    *--report-unsupported-elements-at-runtime* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    jobs
+[.delay-500ms]#[jobs:4481]    classlist:   2,456.28 ms#
+[.delay-800ms]#[jobs:4481]        (cap):     819.46 ms#
+[.delay-1200ms]#[jobs:4481]        setup:   1,875.27 ms#
+[.delay-1400ms]#[jobs:4481]     analysis:  32,853.15 ms#
+[.delay-2000ms]#Error: Unsupported features in 6 methods
+...
+Error: type is not available in this platform: com.oracle.svm.core.locks.ClassInstanceReplacer
+Call path from entry point to java.lang.invoke.MethodType.makeImpl(Class, Class[], boolean):
+	no path found from entry point to target method
+
+Error: type is not available in this platform: org.graalvm.nativeimage.impl.ImageSingletonsSupport
+
+Error: Use -H:+ReportExceptionStackTraces to print stacktrace of underlying exception
+Error: Image build request failed with exit status 1
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    *--initialize-at-build-time* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    jobs
+[.delay-500ms]#[jobs:18820]    classlist:   2,376.13 ms#
+[.delay-800ms]#[jobs:18820]        (cap):     841.87 ms#
+[.delay-1200ms]#[jobs:18820]        setup:   1,985.03 ms#
+[.delay-1400ms]#Warning: class initialization of class org.codehaus.groovy.control.XStreamUtils
+failed with exception java.lang.NoClassDefFoundError: com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.
+Warning: class initialization of class groovy.grape.GrapeIvy
+failed with exception java.lang.NoClassDefFoundError: org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.#
+[.delay-2000ms]#...
+[jobs:18820]    (compile):  16,652.67 ms
+[jobs:18820]      compile:  23,327.92 ms#
+[.delay-3000ms]#[jobs:18820]        image:   2,009.68 ms
+[jobs:18820]        write:     287.56 ms
+[jobs:18820]      [total]:  54,147.88 ms
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    jobs
+[jobs:18820]    classlist:   2,376.13 ms
+[jobs:18820]        (cap):     841.87 ms
+[jobs:18820]        setup:   1,985.03 ms
+Warning: class initialization of class org.codehaus.groovy.control.XStreamUtils
+failed with exception java.lang.NoClassDefFoundError: com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.
+Warning: class initialization of class groovy.grape.GrapeIvy
+failed with exception java.lang.NoClassDefFoundError: org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.
+...
+[jobs:18820]    (compile):  16,652.67 ms
+[jobs:18820]      compile:  23,327.92 ms
+[jobs:18820]        image:   2,009.68 ms
+[jobs:18820]        write:     287.56 ms
+[jobs:18820]      [total]:  [.mark]*54,147.88 ms*
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    jobs
+[jobs:18820]    classlist:   2,376.13 ms
+[jobs:18820]        (cap):     841.87 ms
+[jobs:18820]        setup:   1,985.03 ms
+[.mark]#Warning: class initialization of class org.codehaus.groovy.control.XStreamUtils
+failed with exception java.lang.NoClassDefFoundError: com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.#
+[.mark]#Warning: class initialization of class groovy.grape.GrapeIvy
+failed with exception java.lang.NoClassDefFoundError: org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.#
+...
+[jobs:18820]    (compile):  16,652.67 ms
+[jobs:18820]      compile:  23,327.92 ms
+[jobs:18820]        image:   2,009.68 ms
+[jobs:18820]        write:     287.56 ms
+[jobs:18820]      [total]:  [.mark]*54,147.88 ms*
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    *--initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    jobs
+[.delay-300ms]#[jobs:30000]    classlist:   2,528.44 ms#
+[.delay-500ms]#[jobs:30000]        (cap):     853.07 ms#
+[.delay-700ms]#[jobs:30000]        setup:   2,120.80 ms#
+[.delay-900ms]#[jobs:30000]   (typeflow):   9,920.70 ms#
+[.delay-1200ms]#.#[.delay-1300ms]##.##[.delay-1400ms]#.#
+[.delay-2000ms]#[jobs:30000]      (parse):   2,183.81 ms
+[jobs:30000]     (inline):   3,536.05 ms
+[jobs:30000]    (compile):  15,921.32 ms
+[jobs:30000]      compile:  22,860.96 ms#
+[.delay-3000ms]#[jobs:30000]        image:   1,967.39 ms
+[jobs:30000]        write:     319.20 ms
+[jobs:30000]      [total]:  54,349.57 ms
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    jobs
+[jobs:30000]    classlist:   2,528.44 ms
+[jobs:30000]        (cap):     853.07 ms
+[jobs:30000]        setup:   2,120.80 ms
+[jobs:30000]   (typeflow):   9,920.70 ms
+...
+[jobs:30000]      (parse):   2,183.81 ms
+[jobs:30000]     (inline):   3,536.05 ms
+[jobs:30000]    (compile):  15,921.32 ms
+[jobs:30000]      compile:  22,860.96 ms
+[jobs:30000]        image:   1,967.39 ms
+[jobs:30000]        write:     319.20 ms
+[jobs:30000]      [total]:  [.mark]*54,349.57 ms*
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *ls -lah jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ls -lah jobs
+-rwxrwxr-x 1 user user 21M 05-21 11:57 [.green]*jobs*
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ls -lah jobs
+-rwxrwxr-x 1 user user 21M 05-21 11:57 [.green]*jobs*
+
+$ *./jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ls -lah jobs
+-rwxrwxr-x 1 user user 21M 05-21 11:57 [.green]*jobs*
+
+$ ./jobs
+Exception in thread "main" groovy.lang.GroovyRuntimeException:
+Failed to create Script instance for class: class jobs.
+Reason: java.lang.InstantiationException: Type jobs can not be instantiated
+reflectively as it does not have a no-parameter constructor or the
+no-parameter constructor has not been added explicitly to the native image.
+	at org.codehaus.groovy.runtime.InvokerHelper.createScript(InvokerHelper.java:470)
+	at org.codehaus.groovy.runtime.InvokerHelper.runScript(InvokerHelper.java:422)
+	at jobs.main(jobs.groovy)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ls -lah jobs
+-rwxrwxr-x 1 user user 21M 05-21 11:57 [.green]*jobs*
+
+$ ./jobs
+Exception in thread "main" groovy.lang.GroovyRuntimeException:
+Failed to create Script instance for class: class jobs.
+Reason: java.lang.InstantiationException: [.mark]#Type jobs can not be instantiated
+reflectively# as it does not have a no-parameter constructor or the
+no-parameter constructor has not been added explicitly to the native image.
+	at org.codehaus.groovy.runtime.InvokerHelper.createScript(InvokerHelper.java:470)
+	at org.codehaus.groovy.runtime.InvokerHelper.runScript(InvokerHelper.java:422)
+	at jobs.main(jobs.groovy)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ls -lah jobs
+-rwxrwxr-x 1 user user 21M 05-21 11:57 [.green]*jobs*
+
+$ ./jobs
+Exception in thread "main" groovy.lang.GroovyRuntimeException:
+Failed to create Script instance for class: class jobs.
+Reason: java.lang.InstantiationException: [.mark]#Type jobs can not be instantiated
+reflectively# as it does not have a no-parameter constructor or the
+no-parameter constructor has not been added explicitly to the native image.
+	at org.codehaus.groovy.runtime.InvokerHelper.createScript(InvokerHelper.java:470)
+	at org.codehaus.groovy.runtime.InvokerHelper.runScript(InvokerHelper.java:422)
+	at jobs.main(jobs.groovy)
+
+$ *vim reflections.json*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,json,subs="{subs}"]
+----
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+reflections.json [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+[
+  {
+    "name": "jobs",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }
+]
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+reflections.json [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+[
+  {
+    pass:q[<strong class="mark">"name": "jobs"</strong>,]
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }
+]
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+reflections.json [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+[
+  {
+    "name": "jobs",
+    pass:q[<strong class="mark">"allDeclaredConstructors": true</strong>,]
+    pass:q[<strong class="mark">"allPublicConstructors": true</strong>,]
+    pass:q[<strong class="mark">"allDeclaredMethods": true</strong>,]
+    pass:q[<strong class="mark">"allPublicMethods": true</strong>]
+  }
+]
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+reflections.json [New File]
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+[
+  {
+    "name": "jobs",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }
+]
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+reflections.json [New File]
+----
+
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ls -lah jobs
+-rwxrwxr-x 1 user user 21M 05-21 11:57 [.green]*jobs*
+
+$ ./jobs
+Exception in thread "main" groovy.lang.GroovyRuntimeException:
+Failed to create Script instance for class: class jobs.
+Reason: java.lang.InstantiationException: [.mark]#Type jobs can not be instantiated
+reflectively# as it does not have a no-parameter constructor or the
+no-parameter constructor has not been added explicitly to the native image.
+	at org.codehaus.groovy.runtime.InvokerHelper.createScript(InvokerHelper.java:470)
+	at org.codehaus.groovy.runtime.InvokerHelper.runScript(InvokerHelper.java:422)
+	at jobs.main(jobs.groovy)
+
+$ vim reflections.json
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    *-H:ReflectionConfigurationFiles=reflections.json* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    jobs
+
+[.delay-300ms]#[jobs:20954]    classlist:   2,489.86 ms#
+[.delay-400ms]#[jobs:20954]        (cap):     843.23 ms#
+[.delay-500ms]#[jobs:20954]        setup:   1,916.73 ms#
+[.delay-600ms]#[jobs:20954]   (typeflow):  10,885.57 ms#
+[.delay-700ms]#.#[.delay-1000ms]##.##[.delay-1300ms]#.#
+[.delay-1500ms]#[jobs:20954]    (compile):  14,667.84 ms#
+[.delay-2000ms]#[jobs:20954]      compile:  21,032.08 ms#
+[.delay-2300ms]#[jobs:20954]        image:   1,966.47 ms#
+[.delay-2500ms]#[jobs:20954]        write:     294.49 ms#
+[.delay-3000ms]#[jobs:20954]      [total]:  53,243.92 ms
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    jobs
+
+[jobs:20954]    classlist:   2,489.86 ms
+[jobs:20954]        (cap):     843.23 ms
+[jobs:20954]        setup:   1,916.73 ms
+[jobs:20954]   (typeflow):  10,885.57 ms
+...
+[jobs:20954]    (compile):  14,667.84 ms
+[jobs:20954]      compile:  21,032.08 ms
+[jobs:20954]        image:   1,966.47 ms
+[jobs:20954]        write:     294.49 ms
+[jobs:20954]      [total]:  [.mark]*53,243.92 ms*
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *./jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs
+Exception in thread "main" org.codehaus.groovy.runtime.InvokerInvocationException:
+com.oracle.svm.core.jdk.UnsupportedFeatureError: Accessing an URL protocol
+that was not enabled. The URL protocol https is supported but not enabled
+by default. It must be enabled by adding the -H:EnableURLProtocols=https
+option to the native-image command.
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1041)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:1011)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:994)
+	at org.codehaus.groovy.runtime.InvokerHelper.runScript(InvokerHelper.java:423)
+	at jobs.main(jobs.groovy)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs
+Exception in thread "main" org.codehaus.groovy.runtime.InvokerInvocationException:
+com.oracle.svm.core.jdk.UnsupportedFeatureError: Accessing an URL protocol
+that was not enabled. The URL protocol https is supported but not enabled
+by default. [.mark]*It must be enabled by adding the -H:EnableURLProtocols=https*
+option to the native-image command.
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1217)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1041)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:1011)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:994)
+	at org.codehaus.groovy.runtime.InvokerHelper.runScript(InvokerHelper.java:423)
+	at jobs.main(jobs.groovy)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    *--enable-url-protocols=http,https* \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    --enable-url-protocols=http,https \
+    jobs
+[.delay-300ms]#[jobs:9386]    classlist:   2,433.79 ms#
+[.delay-500ms]#[jobs:9386]        (cap):     855.86 ms#
+[.delay-700ms]#[jobs:9386]        setup:   2,115.01 ms#
+[.delay-900ms]#[jobs:9386]   (typeflow):  13,953.49 ms#
+[.delay-1100ms]#.#[.delay-1300ms]##.##[.delay-1500ms]#.#
+[.delay-2000ms]#[jobs:9386]    (compile):  30,385.07 ms#
+[.delay-2300ms]#[jobs:9386]      compile:  39,845.02 ms#
+[.delay-2500ms]#[jobs:9386]        image:   3,220.12 ms#
+[.delay-3000ms]#[jobs:9386]        write:     385.24 ms#
+[.delay-3000ms]#[jobs:9386]      [total]:  84,653.80 ms
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    --enable-url-protocols=http,https \
+    jobs
+[jobs:9386]    classlist:   2,433.79 ms
+[jobs:9386]        (cap):     855.86 ms
+[jobs:9386]        setup:   2,115.01 ms
+[jobs:9386]   (typeflow):  13,953.49 ms
+...
+[jobs:9386]    (compile):  30,385.07 ms
+[jobs:9386]      compile:  39,845.02 ms
+[jobs:9386]        image:   3,220.12 ms
+[jobs:9386]        write:     385.24 ms
+[jobs:9386]      [total]:  [.mark]*84,653.80 ms*
+
+$ {cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *./jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs
+WARNING: The sunec native library, required by the SunEC provider, could
+not be loaded. This library is usually shipped as part of the JDK and
+can be found under <JAVA_HOME>/jre/lib/<platform>/libsunec.so. It is
+loaded at run time via System.loadLibrary("sunec"), the first time services
+from SunEC are accessed. To use this providers services the java.library.path
+system property needs to be set accordingly to point to a location that contains
+libsunec.so. Note that if java.library.path is not set it defaults to the
+current working directory.
+
+Exception in thread "main" org.codehaus.groovy.runtime.InvokerInvocationException:
+java.lang.UnsatisfiedLinkError: sun.security.ec.ECKeyPairGenerator.generateECKeyPair(I[B[B)[Ljava/lang/Object;
+[symbol: Java_sun_security_ec_ECKeyPairGenerator_generateECKeyPair or Java_sun_security_ec_ECKeyPairGenerator_generateECKeyPair__I_3B_3B]
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs
+WARNING: The sunec native library, required by the SunEC provider, could
+not be loaded. This library is usually shipped as part of the JDK and
+can be found under <JAVA_HOME>/jre/lib/<platform>/libsunec.so. It is
+loaded at run time via System.loadLibrary("sunec"), the first time services
+from SunEC are accessed. To use this providers services the java.library.path
+system property needs to be set accordingly to point to a location that contains
+[.mark]*libsunec.so*. Note that if java.library.path is not set it defaults to the
+current working directory.
+
+Exception in thread "main" org.codehaus.groovy.runtime.InvokerInvocationException:
+java.lang.UnsatisfiedLinkError: sun.security.ec.ECKeyPairGenerator.generateECKeyPair(I[B[B)[Ljava/lang/Object;
+[symbol: Java_sun_security_ec_ECKeyPairGenerator_generateECKeyPair or Java_sun_security_ec_ECKeyPairGenerator_generateECKeyPair__I_3B_3B]
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs
+WARNING: The sunec native library, required by the SunEC provider, could
+not be loaded. This library is usually shipped as part of the JDK and
+can be found under <JAVA_HOME>/jre/lib/<platform>/libsunec.so. It is
+loaded at run time via System.loadLibrary("sunec"), the first time services
+from SunEC are accessed. To use this providers services the [.mark]*java.library.path*
+system property needs to be set accordingly to point to a location that contains
+[.mark]*libsunec.so*. Note that if java.library.path is not set it defaults to the
+current working directory.
+
+Exception in thread "main" org.codehaus.groovy.runtime.InvokerInvocationException:
+java.lang.UnsatisfiedLinkError: sun.security.ec.ECKeyPairGenerator.generateECKeyPair(I[B[B)[Ljava/lang/Object;
+[symbol: Java_sun_security_ec_ECKeyPairGenerator_generateECKeyPair or Java_sun_security_ec_ECKeyPairGenerator_generateECKeyPair__I_3B_3B]
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *./jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+java.lang.ClassNotFoundException: org.codehaus.groovy.runtime.dgm$55
+   at com.oracle.svm.core.hub.ClassForNameSupport.forName(ClassForNameSupport.java:51)
+   at java.lang.ClassLoader.loadClass(Target_java_lang_ClassLoader.java:131)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.createProxy(GeneratedMetaMethod.java:101)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.proxy(GeneratedMetaMethod.java:93)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.isValidMethod(GeneratedMetaMethod.java:78)
+   at groovy.lang.MetaClassImpl.chooseMethodInternal(MetaClassImpl.java:3196)
+   ...
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+java.lang.ClassNotFoundException: [.mark]*org.codehaus.groovy.runtime.dgm$55*
+   at com.oracle.svm.core.hub.ClassForNameSupport.forName(ClassForNameSupport.java:51)
+   at java.lang.ClassLoader.loadClass(Target_java_lang_ClassLoader.java:131)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.createProxy(GeneratedMetaMethod.java:101)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.proxy(GeneratedMetaMethod.java:93)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.isValidMethod(GeneratedMetaMethod.java:78)
+   at groovy.lang.MetaClassImpl.chooseMethodInternal(MetaClassImpl.java:3196)
+   ...
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+java.lang.ClassNotFoundException: [.mark]*org.codehaus.groovy.runtime.dgm$55*
+   at com.oracle.svm.core.hub.ClassForNameSupport.forName(ClassForNameSupport.java:51)
+   at java.lang.ClassLoader.loadClass(Target_java_lang_ClassLoader.java:131)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.createProxy(GeneratedMetaMethod.java:101)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.proxy(GeneratedMetaMethod.java:93)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.isValidMethod(GeneratedMetaMethod.java:78)
+   at groovy.lang.MetaClassImpl.chooseMethodInternal(MetaClassImpl.java:3196)
+   ...
+
+$ *vim reflections.json*{cur2}
+----
+
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+[
+  {
+    "name": "jobs",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }
+]
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~##
+reflections.json
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+[
+  {
+    "name": "jobs",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  },**{
+    "name": "org.codehaus.groovy.runtime.dgm$55",
+    "allDeclaredConstructors": true,
+    "allPublicConstructors": true,
+    "allDeclaredMethods": true,
+    "allPublicMethods": true
+  }**
+]
+{cur2}
+[.purple]##~
+~
+~
+~
+~
+~##
+reflections.json
+----
+
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+java.lang.ClassNotFoundException: [.mark]*org.codehaus.groovy.runtime.dgm$55*
+   at com.oracle.svm.core.hub.ClassForNameSupport.forName(ClassForNameSupport.java:51)
+   at java.lang.ClassLoader.loadClass(Target_java_lang_ClassLoader.java:131)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.createProxy(GeneratedMetaMethod.java:101)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.proxy(GeneratedMetaMethod.java:93)
+   at org.codehaus.groovy.reflection.GeneratedMetaMethod$Proxy.isValidMethod(GeneratedMetaMethod.java:78)
+   at groovy.lang.MetaClassImpl.chooseMethodInternal(MetaClassImpl.java:3196)
+   ...
+
+$ vim reflections.json
+
+$ {cur2}
+----
+
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    --enable-url-protocols=http,https \
+    jobs{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    --enable-url-protocols=http,https \
+    jobs
+[.delay-300ms]#[jobs:9386]    classlist:   2,433.79 ms#
+[.delay-500ms]#[jobs:9386]        (cap):     855.86 ms#
+[.delay-700ms]#[jobs:9386]        setup:   2,115.01 ms#
+[.delay-900ms]#[jobs:9386]   (typeflow):  13,953.49 ms#
+[.delay-1100ms]#.#[.delay-1300ms]##.##[.delay-1500ms]#.#
+[.delay-2000ms]#[jobs:9386]    (compile):  30,385.07 ms#
+[.delay-2300ms]#[jobs:9386]      compile:  39,845.02 ms#
+[.delay-2500ms]#[jobs:9386]        image:   3,220.12 ms#
+[.delay-3000ms]#[jobs:9386]        write:     385.24 ms#
+[.delay-3000ms]#[jobs:9386]      [total]:  79,018.80  ms
+
+$ {cur2}#
+----
+
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    -H:ReflectionConfigurationFiles=reflections.json \
+    --enable-url-protocols=http,https \
+    jobs
+[jobs:9386]    classlist:   2,433.79 ms
+[jobs:9386]        (cap):     855.86 ms
+[jobs:9386]        setup:   2,115.01 ms
+[jobs:9386]   (typeflow):  13,953.49 ms
+...
+[jobs:9386]    (compile):  30,385.07 ms
+[jobs:9386]      compile:  39,845.02 ms
+[jobs:9386]        image:   3,220.12 ms
+[jobs:9386]        write:     385.24 ms
+[jobs:9386]      [total]:  [.mark]*79,018.80 ms*
+
+$ {cur2}
+----
+
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+
+[.delay-600ms]#...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *time*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *time ./jobs*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *time ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+
+[.delay-600ms]#...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	0m0,672s
+user	0m0,019s
+sys	0m0,005s
+
+$ {cur2}#
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m0,672s*
+user	0m0,019s
+sys	0m0,005s
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m0,672s* vs. [.mark]*0m1,744s*
+user	0m0,019s
+sys	0m0,005s
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ time ./jobs -Djava.library.path=$JAVA_HOME/jre/lib/amd64
+
+...
+
+==========================================
+Technical Lead, GitHub Solutions
+Portland, OR or Offsite- USA
+@ Autodesk
+Wed Nov 14 17:01:38 UTC 2018
+https://jobs.github.com/positions/b0332ea6-e82e-11e8-83b0-deabde06afe8
+==========================================
+
+real	[.mark]*0m0,672s* vs. [.mark]*0m1,744s* vs. [.mark]*0m1,395s*
+user	0m0,019s
+sys	0m0,005s
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *java*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java *-cp "${CPH}"*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    *-agentlib:*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:**native-image-agent**{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent**=config-output-dir=**{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=**conf/**{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    *jobs >/dev/null*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    jobs >/dev/null
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    jobs >/dev/null
+
+$ **ls -la conf/*.json**{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    jobs >/dev/null
+
+$ ls -la conf/*.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/jni-config.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/proxy-config.json
+-rw-rw-r-- 1 user user 16795 05-21 18:31 conf/reflect-config.json
+-rw-rw-r-- 1 user user   150 05-21 18:31 conf/resource-config.json
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    jobs >/dev/null
+
+$ ls -la conf/*.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/jni-config.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/proxy-config.json
+-rw-rw-r-- 1 user user [.mark]**16795** 05-21 18:31 conf/reflect-config.json
+-rw-rw-r-- 1 user user   150 05-21 18:31 conf/resource-config.json
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    jobs >/dev/null
+
+$ ls -la conf/*.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/jni-config.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/proxy-config.json
+-rw-rw-r-- 1 user user [.mark]**16795** 05-21 18:31 conf/reflect-config.json
+-rw-rw-r-- 1 user user   150 05-21 18:31 conf/resource-config.json
+
+$ **wc -l conf/reflect-config.json**{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ java -cp "${CPH}" \
+    -agentlib:native-image-agent=config-output-dir=conf/ \
+    jobs >/dev/null
+
+$ ls -la conf/*.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/jni-config.json
+-rw-rw-r-- 1 user user     4 05-21 18:31 conf/proxy-config.json
+-rw-rw-r-- 1 user user [.mark]**16795** 05-21 18:31 conf/reflect-config.json
+-rw-rw-r-- 1 user user   150 05-21 18:31 conf/resource-config.json
+
+$ wc -l conf/reflect-config.json
+627 conf/reflect-config.json
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    *-H:ReflectionConfigurationFiles=reflections.json*{cur2} \
+    --enable-url-protocols=http,https \
+    jobs
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    {cur2} \
+    --enable-url-protocols=http,https \
+    jobs
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ native-image --no-server \
+    -cp "${CPH}" \
+    --allow-incomplete-classpath \
+    --no-fallback \
+    --report-unsupported-elements-at-runtime \
+    --initialize-at-build-time \
+    --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils,groovy.grape.GrapeIvy \
+    *-H:ConfigurationFileDirectories=conf/*{cur2} \
+    --enable-url-protocols=http,https \
+    jobs
+----

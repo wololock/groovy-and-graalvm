@@ -1,0 +1,6 @@
+== 3 things you will [.mark]#learn# today
+
+[%step,role="nobullets"]
+* [.mark]*how* to use `native-image` command line tool
+* [.mark]*what* are the *Groovy* limitations in terms of AOT
+* [.mark]*when* it makes sense to use native images +

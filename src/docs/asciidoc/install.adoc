@@ -1,0 +1,258 @@
+== {graalvm}
+
+https://www.graalvm.org
+
+== Installing {graalvm}
+
+using SDKMAN!
+
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ *sdk install java 19.0.0-grl*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ *sdk use java 19.0.0-grl*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ *java -version*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build 1.8.0_212.buildslave.jdk8u-src-tar--b03)
+OpenJDK GraalVM CE 19.0.0 (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build 1.8.0_212.buildslave.jdk8u-src-tar--b03)
+OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build [.mark]*1.8.0_212*.buildslave.jdk8u-src-tar--b03)
+OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build [.mark]*1.8.0_212*.buildslave.jdk8u-src-tar--b03)
+OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ *gu install native-image*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build [.mark]*1.8.0_212*.buildslave.jdk8u-src-tar--b03)
+OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ gu install native-image
+
+$ {cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build [.mark]*1.8.0_212*.buildslave.jdk8u-src-tar--b03)
+OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ gu install native-image
+
+$ *native-image --version*{cur2}
+----
+
+[transition="none",background-color="{bg1}"]
+=== !
+
+[source,bash,subs="{subs}"]
+----
+$ sdk install java 19.0.0-grl
+
+Done installing!
+
+Do you want java 19.0.0-grl to be set as default? (Y/n): n
+
+$ sdk use java 19.0.0-grl
+
+[.light-green]*Using java version 19.0.0-grl in this shell.*
+
+$ java -version
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build [.mark]*1.8.0_212*.buildslave.jdk8u-src-tar--b03)
+OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
+
+$ gu install native-image
+
+$ native-image --version
+GraalVM Version 19.0.0 CE
+
+$ {cur2}
+----
