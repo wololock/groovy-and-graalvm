@@ -2,9 +2,8 @@
 :sources-url: icon:github[] http://bit.ly/groovy-and-graalvm
 :revnumber: {project-version}
 :imagesdir: images
-:sourcedir: ../java
-:customcss: css/custom.css
-:highlightjs-theme: css/androidstudio.min.css
+:customcss: ./css/custom.css
+:highlightjs-theme: ./css/androidstudio.min.css
 :listing-caption: Listing
 :bg1: #666666
 :bg2: #3D749C
@@ -17,16 +16,16 @@ Instant startup with `native-image` ahead-of-time compilation
 
 // -- Slides --
 
-include::goals.adoc[]
+include::{includedir}/goals.adoc[]
 
-include::whoami.adoc[]
+include::{includedir}/whoami.adoc[]
 
-include::install.adoc[]
+include::{includedir}/install.adoc[]
 
-include::demo.adoc[]
+include::{includedir}/demo.adoc[]
 
-include::limitations.adoc[]
+include::{includedir}/limitations.adoc[]
 
-include::conclusions.adoc[]
+include::{includedir}/conclusions.adoc[]
 
-include::thankyou.adoc[]
+include::{includedir}/thankyou.adoc[]

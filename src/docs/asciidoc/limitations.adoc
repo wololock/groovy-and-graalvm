@@ -40,7 +40,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -61,7 +61,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -82,7 +82,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -103,7 +103,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -129,7 +129,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -155,7 +155,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -176,7 +176,7 @@ class App {
 }
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,groovy,subs="{subs}"]

@@ -15,7 +15,7 @@ using SDKMAN!
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -23,7 +23,7 @@ $ {cur2}
 $ *sdk install java 19.0.0-grl*{cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -37,7 +37,7 @@ Do you want java 19.0.0-grl to be set as default? (Y/n): n
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -51,7 +51,7 @@ Do you want java 19.0.0-grl to be set as default? (Y/n): n
 $ *sdk use java 19.0.0-grl*{cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -69,7 +69,7 @@ $ sdk use java 19.0.0-grl
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -87,7 +87,7 @@ $ sdk use java 19.0.0-grl
 $ *java -version*{cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -110,7 +110,7 @@ OpenJDK GraalVM CE 19.0.0 (build 25.212-b03-jvmci-19-b01, mixed mode)
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -133,7 +133,7 @@ OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -156,7 +156,7 @@ OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -179,7 +179,7 @@ OpenJDK [.mark]*GraalVM CE 19.0.0* (build 25.212-b03-jvmci-19-b01, mixed mode)
 $ *gu install native-image*{cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -204,7 +204,7 @@ $ gu install native-image
 $ {cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
@@ -229,7 +229,7 @@ $ gu install native-image
 $ *native-image --version*{cur2}
 ----
 
-[transition="none",background-color="{bg1}"]
+[transition="none",background-transition="none",background-color="{bg1}"]
 === !
 
 [source,bash,subs="{subs}"]
