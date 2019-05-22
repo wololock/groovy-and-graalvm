@@ -1,23 +1,25 @@
 == Limitations
 
-[.mark]*Groovy* is not a first-class citizen for ahead-of-time compilation
+[.mark]*Groovy* is not a first-class citizen for ahead-of-time compilation.
 
 === icon:ban[role="red"] Runtime metaprogramming
 
 [.mark]*Substrate VM* (ahead-of-time compiler) does not support dynamic class generation, InvokeDynamic[.red]^*^ Bytecode
-and Method Handle
+and Method Handle.
 
-[.smaller]_([.red]^*^ except a single virtual call reduction used for Java 8 Lambda expressions)_
+[%step,role="nobullets"]
+* [.smaller]_([.red]^*^ except a single virtual call reduction used for Java 8 Lambda expressions)_
 
 === icon:ban[role="red"] Dynamic nature
 
-In most cases [.mark]*dynamic* Groovy idioms won't compile with AOT, thus it is recommended to use *static compilation*
+In most cases Groovy [.mark]*dynamic* idioms won't compile with AOT, thus it is recommended to use *static compilation* instead.
 
 === icon:ban[role="red"] Closure coercion to SAM
 
-A closure coercion to SAM ([.mark]*single abstract method*) type is not currently supported
+A closure coercion to SAM ([.mark]*single abstract method*) type is currently not&nbsp;supported.
 
-https://github.com/oracle/graal/issues/1306
+[%step,role="nobullets"]
+* https://github.com/oracle/graal/issues/1306
 
 [transition="none",background-color="{bg1}"]
 === !
@@ -203,10 +205,10 @@ class App {
 It doesn't work out of the box, but you can [.mark]*apply a workaround*
 
 [%step,role="nobullets"]
-* Collect all [.mark]*JARs* to a single folder `groovy -Dgrape.root=libs/ ...`
-* Put all collected JARs to the [.mark]*classpath*
-* Compile native image with `-Dgroovy.grape.enable=false`
-* [.xs]#https://e.printstacktrace.blog/graalvm-groovy-grape-creating-native-image-of-standalone-script/#
+* icon:check-square-o[role=grey] Collect all [.mark]*JARs* to a single folder `groovy -Dgrape.root=libs/ ...`
+* icon:check-square-o[role=grey] Put all collected JARs to the [.mark]*classpath*
+* icon:check-square-o[role=grey] Compile native image with `-Dgroovy.grape.enable=false`
+* icon:hand-o-right[role=grey] https://e.printstacktrace.blog/graalvm-groovy-grape-creating-native-image-of-standalone-script/
 
 
 === icon:ban[role="red"] Substrate VM limitations

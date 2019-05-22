@@ -59,6 +59,7 @@ asciidoctorj {
         'idseparator': '-',
         'docinfo1': '',
         'revealjs_progress': 'false',
+        'revealjs_transition': 'fade',
         'revealjs_backgroundTransition': 'none',
         'revealjs_width': '1024',
         'revealjs_history': 'true'
