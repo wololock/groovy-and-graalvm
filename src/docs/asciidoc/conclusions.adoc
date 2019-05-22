@@ -4,5 +4,6 @@
 * icon:check[role=green] Almost instant startup thanks to ahead-of-time compilation
 * icon:check[role=green] Great choice for small CLI programs, FaaS (function as a service)
 * icon:check[role=green] You can use it with *Picocli* (https://picocli.info) for command line tools
-* icon:check[role=green] You can use it with *Micronaut* and *Ratpack*
+* icon:check[role=green] *Micronaut* supports {graalvm} native images out-of-the-box (Java)
+* icon:check[role=green] *Ratpack* 1.6+ can compile to the native image (Java)
 * icon:warning[role=orange] `native-image` is available as an early adopter plugin - expect changes and accept its experimental nature

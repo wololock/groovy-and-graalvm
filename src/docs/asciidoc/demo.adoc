@@ -1036,11 +1036,12 @@ $ native-image --no-server \
 [.delay-800ms]#[jobs:18820]        (cap):     841.87 ms#
 [.delay-1200ms]#[jobs:18820]        setup:   1,985.03 ms#
 [.delay-1400ms]#Warning: class initialization of class org.codehaus.groovy.control.XStreamUtils
-failed with exception java.lang.NoClassDefFoundError: com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.
+failed with exception java.lang.NoClassDefFoundError:
+com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.
 Warning: class initialization of class groovy.grape.GrapeIvy
-failed with exception java.lang.NoClassDefFoundError: org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.#
+failed with exception java.lang.NoClassDefFoundError:
+org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.#
 [.delay-2000ms]#...
-[jobs:18820]    (compile):  16,652.67 ms
 [jobs:18820]      compile:  23,327.92 ms#
 [.delay-3000ms]#[jobs:18820]        image:   2,009.68 ms
 [jobs:18820]        write:     287.56 ms
@@ -1065,11 +1066,12 @@ $ native-image --no-server \
 [jobs:18820]        (cap):     841.87 ms
 [jobs:18820]        setup:   1,985.03 ms
 Warning: class initialization of class org.codehaus.groovy.control.XStreamUtils
-failed with exception java.lang.NoClassDefFoundError: com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.
+failed with exception java.lang.NoClassDefFoundError:
+com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.
 Warning: class initialization of class groovy.grape.GrapeIvy
-failed with exception java.lang.NoClassDefFoundError: org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.
+failed with exception java.lang.NoClassDefFoundError:
+org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.
 ...
-[jobs:18820]    (compile):  16,652.67 ms
 [jobs:18820]      compile:  23,327.92 ms
 [jobs:18820]        image:   2,009.68 ms
 [jobs:18820]        write:     287.56 ms
@@ -1094,11 +1096,12 @@ $ native-image --no-server \
 [jobs:18820]        (cap):     841.87 ms
 [jobs:18820]        setup:   1,985.03 ms
 [.mark]#Warning: class initialization of class org.codehaus.groovy.control.XStreamUtils
-failed with exception java.lang.NoClassDefFoundError: com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.#
+failed with exception java.lang.NoClassDefFoundError:
+com/thoughtworks/xstream/io/HierarchicalStreamDriver. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=org.codehaus.groovy.control.XStreamUtils to explicitly request delayed initialization of this class.#
 [.mark]#Warning: class initialization of class groovy.grape.GrapeIvy
-failed with exception java.lang.NoClassDefFoundError: org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.#
+failed with exception java.lang.NoClassDefFoundError:
+org/apache/ivy/core/module/descriptor/DependencyDescriptor. This class will be initialized at run time because either option --report-unsupported-elements-at-runtime or option --allow-incomplete-classpath is used for image building. Use the option --initialize-at-run-time=groovy.grape.GrapeIvy to explicitly request delayed initialization of this class.#
 ...
-[jobs:18820]    (compile):  16,652.67 ms
 [jobs:18820]      compile:  23,327.92 ms
 [jobs:18820]        image:   2,009.68 ms
 [jobs:18820]        write:     287.56 ms
