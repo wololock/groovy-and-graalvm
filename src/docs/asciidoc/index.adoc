@@ -1,5 +1,5 @@
 = Groovy and *{graalvm}*
-:sources-url: icon:github[] http://bit.ly/groovy-and-graalvm
+:sources-url: icon:github[] https://github.com/wololock/groovy-and-graalvm
 :revnumber: {project-version}
 :imagesdir: images
 :customcss: ./css/custom.css
@@ -14,6 +14,8 @@
 :slide-with-code: %notitle,background-color="{bg1}",transition="none",background-transition="none"
 
 Instant startup with `native-image` ahead-of-time compilation
+
+icon:twitter[] @wololock
 
 // -- Slides --
 

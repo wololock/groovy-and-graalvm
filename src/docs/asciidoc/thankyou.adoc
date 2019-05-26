@@ -16,5 +16,5 @@ Do you have any [.mark]*questions*?
 --
 [.mark]*Handout*, slides, demos, and all materials are available:
 
-[.larger]*{sources-url}*
+*{sources-url}*
 --
