@@ -21,7 +21,7 @@ A closure coercion to SAM ([.mark]*single abstract method*) type is currently no
 [%step,role="nobullets"]
 * https://github.com/oracle/graal/issues/1306
 
-[transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -42,7 +42,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -63,7 +63,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -84,7 +84,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -105,7 +105,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -131,7 +131,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -157,7 +157,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]
@@ -178,7 +178,7 @@ class App {
 }
 ----
 
-[transition="none",background-transition="none",background-color="{bg1}"]
+[{slide-with-code}]
 === !
 
 [source,groovy,subs="{subs}"]

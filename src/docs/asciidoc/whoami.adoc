@@ -12,4 +12,5 @@ _[.mark]**Szymon Stepniak**_
 [.animation-slide-right.text-left.margin-left-200.margin-top-30]
 I blog @ https://e.printstacktrace.blog[e.printstacktrace.blog] +
 Continuous Delivery Architect @ image:upwork.jpg[height=32,role="upwork"] +
+Torun Java User Group founder +
 icon:twitter[] @wololock

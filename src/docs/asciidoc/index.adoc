@@ -11,6 +11,7 @@
 :cur1: [.blinking]##_##
 :cur2: [.blinking]##█##
 :subs: verbatim,attributes,macros,quotes
+:slide-with-code: %notitle,background-color="{bg1}",transition="none",background-transition="none"
 
 Instant startup with `native-image` ahead-of-time compilation
 
