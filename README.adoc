@@ -1,1 +1,18 @@
 = GraalVM and Groovy
+
+Slides: https://speakerdeck.com/wololock/groovy-and-graalvm
+
+Video: _will be published soon_
+
+== Demo
+
+You can find demo from slides in the `demos/groovy-script` folder.
+
+* set `GROOVY_HOME` environment variable to point to the Groovy 2.5.7 distribution folder
+* use GraalVM 19.0.0 (Community Edition or Enterprise Edition)
+
+
+== Links worth visiting
+
+* https://www.graalvm.org/
+* https://e.printstacktrace.blog/graalvm-and-groovy-how-to-start/
